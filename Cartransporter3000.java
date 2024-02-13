@@ -8,7 +8,7 @@ public class Cartransporter3000 extends Truck implements Loadable<Car>, Ramp{
     private final int capacity;
     private final double maxWeight;
     public Cartransporter3000(Color color, double x, double y, double direction) {
-        super(2, color, 500, "Cartransporter3000", 3000, x, y, direction);
+        super(2, color, 500, "Cartransporter3000", 3000, x, y, direction, 0);
         this.capacity = 2;
         this.maxWeight = 1500;
         transporterRamp = new RampC<>(RampC.RampEnum.RAISED);

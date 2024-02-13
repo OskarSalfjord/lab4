@@ -10,7 +10,8 @@ public abstract class Vehicle implements Movable{
     private double y; // y coordinate
     private double direction;// direction in radians
     private boolean engineOn;
-    public Vehicle(Color color, double enginePower, String modelName, double weight, double x, double y, double direction) {
+    public int canMove;
+    public Vehicle(Color color, double enginePower, String modelName, double weight, double x, double y, double direction, int loaded) {
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
@@ -19,6 +20,7 @@ public abstract class Vehicle implements Movable{
         this.y = y;
         this.direction = direction;
         this.engineOn = false;
+        this.canMove = 0;
     }
     protected boolean getEngineOn() {
         return this.engineOn;
@@ -35,6 +37,7 @@ public abstract class Vehicle implements Movable{
     protected double getCurrentSpeed(){
         return currentSpeed;
     }
+    protected void flipCurrentSpeed() {currentSpeed = -currentSpeed;}
     protected double getX() {
         return x;
     }
