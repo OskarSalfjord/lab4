@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -69,6 +70,7 @@ public class CarController {
                         if ((Math.abs(vehicle.getX() - volvoshop.getX())) < 50 && Math.abs((vehicle.getY() - volvoshop.getY())) < 50) {
                             volvoshop.loadCar((Volvo240) vehicle);
                             vehicle.set_canMove(false);
+                            frame.drawPanel.volvoImage = null;
                         }
                         else {
                         frame.drawPanel.moveitVolvo(x, y);
