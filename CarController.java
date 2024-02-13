@@ -60,7 +60,7 @@ public class CarController {
                     vehicle.setDirection(vehicle.getDirection() - Math.PI);
                     vehicle.stopEngine();
                     vehicle.startEngine();
-                } else if (vehicle.canMove == 0) {
+                } else if (vehicle.get_canMove()) {
                     vehicle.move();
                     int x = (int) Math.round(vehicle.getX());
                     int y = (int) Math.round(vehicle.getY());
@@ -68,7 +68,7 @@ public class CarController {
                     if (vehicle instanceof Volvo240) {
                         if ((Math.abs(vehicle.getX() - volvoshop.getX())) < 50 && Math.abs((vehicle.getY() - volvoshop.getY())) < 50) {
                             volvoshop.loadCar((Volvo240) vehicle);
-                            vehicle.canMove = 1;
+                            vehicle.set_canMove(false);
                         }
                         else {
                         frame.drawPanel.moveitVolvo(x, y);
