@@ -21,10 +21,14 @@ public class DrawPanel extends JPanel{
     BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300,300);
 
+
     // TODO: Make this general for all cars
     void moveitVolvo(int x, int y){
         volvoPoint.x = x;
         volvoPoint.y = y;
+    }
+    void moveItGeneral(Vehicle vehicle, int x, int y) {
+        vehicle.setPosition(x, y);
     }
     void moveitSaab(int x, int y){
         saabPoint.x = x;

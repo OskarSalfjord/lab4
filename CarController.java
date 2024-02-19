@@ -73,14 +73,17 @@ public class CarController {
                             frame.drawPanel.volvoImage = null;
                         }
                         else {
-                        frame.drawPanel.moveitVolvo(x, y);
+                        frame.drawPanel.moveItGeneral(vehicle, x, y);
+                            frame.drawPanel.moveitVolvo(x, y);
                         // repaint() calls the paintComponent method of the panel
                         frame.drawPanel.repaint();}
                     } else if (vehicle instanceof Saab95) {
+                        frame.drawPanel.moveItGeneral(vehicle, x, y);
                         frame.drawPanel.moveitSaab(x, y);
                         // repaint() calls the paintComponent method of the panel
                         frame.drawPanel.repaint();
                     } else if (vehicle instanceof Scania) {
+                        frame.drawPanel.moveItGeneral(vehicle, x, y);
                         frame.drawPanel.moveitScania(x, y);
                         frame.drawPanel.repaint();
                     }

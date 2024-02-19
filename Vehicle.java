@@ -1,4 +1,7 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public abstract class Vehicle implements Movable{
     //FIXA FLAK INTERFACE?
     private Color color;
