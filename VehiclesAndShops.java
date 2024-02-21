@@ -1,6 +1,7 @@
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class VehiclesAndShops {
+public class VehiclesAndShops implements MoveImage{
     ArrayList<Vehicle> vehicles;
     ArrayList<AutoShop> shops;
     //ArrayList allitems;
@@ -15,24 +16,20 @@ public class VehiclesAndShops {
         for (Vehicle car : vehicles
         ) {
             car.gas(gas);
-
         }
     }
-
     void startEngine() {
         for (Vehicle car : vehicles
         ) {
             car.startEngine();
         }
     }
-
     void stopEngine() {
         for (Vehicle car : vehicles
         ) {
             car.stopEngine();
         }
     }
-
     void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (Vehicle car : vehicles
@@ -40,7 +37,6 @@ public class VehiclesAndShops {
             car.brake(brake);
         }
     }
-
     void turboOn() {
         for (Vehicle car : vehicles
         ) {
@@ -73,4 +69,12 @@ public class VehiclesAndShops {
             }
         }
     }
+//TODO
+    @Override
+    public double getX(Object vehicleOrAutoshop) {return 0;}
+
+    @Override
+    public double getY(Object vehicleOrAutoshop) {return 0;}
+    @Override
+    public BufferedImage getImage(Object vehicleOrAutoShop) {return null;}
 }

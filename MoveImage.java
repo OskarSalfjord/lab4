@@ -1,7 +1,13 @@
 import java.awt.image.BufferedImage;
 
 public interface MoveImage<T>{
-    double getX(T carOrShop);
-    double getY(T carOrShop);
-    BufferedImage getImage(T carOrShop);
+    double getX();
+
+    double getY();
+
+    BufferedImage getImage();
+
+    double getX(T vehicleOrAutoshop);
+    double getY(T vehicleOrAutoshop);
+    BufferedImage getImage(T vehicleOrAutoShop);
 }
