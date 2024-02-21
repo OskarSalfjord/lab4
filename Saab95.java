@@ -3,10 +3,12 @@ import java.awt.*;
 public class Saab95 extends Car{
 
     private boolean turboOn;
+    private String saabImage;
     
     public Saab95(Color color, double x, double y, double direction){
         super(2, color, 125, "Saab95", 1000,x, y, direction);
 	    turboOn = false;
+        this.saabImage = "pics/Saab95.jpg";
     }
 
     protected void setTurboOn(){

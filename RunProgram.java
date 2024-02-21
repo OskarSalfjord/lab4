@@ -26,16 +26,15 @@ public class RunProgram {
         int delay = rp.delay;
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
         ArrayList<Volvo240> volvoList1 = new ArrayList<>();
-        ArrayList<Car> allCarsList1 = new ArrayList<>();
+        ArrayList<Vehicle> allCarsList1 = new ArrayList<>();
 
-        vehicles.add(new Volvo240(Color.BLUE, 0, 302, 0));
-        vehicles.add(new Saab95(Color.CYAN, 0, 200, 0));
-        vehicles.add(new Scania(Color.BLACK, 0, 300, 0));
+        allCarsList1.add(new Volvo240(Color.BLUE, 0, 302, 0));
+        allCarsList1.add(new Saab95(Color.CYAN, 0, 200, 0));
+        allCarsList1.add(new Scania(Color.BLACK, 0, 300, 0));
 
-        ArrayList<AutoShop<Volvo240>> volvoShops = new ArrayList<>();
         ArrayList<AutoShop> allShops = new ArrayList<>();
-        volvoShops.add(new AutoShop(5,volvoList1, 100, 100));
-        allShops.add(new AutoShop(5,allCarsList1, 100, 100));
+        AutoShop volvoshop1 = new AutoShop(5, volvoList1, 100, 100, "pics/VolvoBrand.jpg");
+        allShops.add(volvoshop1);
 
 
         // Start a new view and send a reference of self
