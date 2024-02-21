@@ -25,7 +25,7 @@ public class TimerListener implements ActionListener {
 
                 if (vehicle instanceof Volvo240) {
                     if ((Math.abs(vehicle.getX() - volvoShop.getX())) < 50 && Math.abs((vehicle.getY() - volvoShop.getY())) < 50) {
-                        volvoShop.loadCar(vehicle);
+                        volvoShop.loadCar((Volvo240) vehicle);
                         vehicle.set_canMove(false);
                         frame.drawPanel.volvoImage = null;
                     }
