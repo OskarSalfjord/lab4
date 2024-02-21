@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class TimerListener implements ActionListener {
     ArrayList<Vehicle> vehicles;
+    AutoShop<Car> volvoShop;
+    CarView frame;
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
             if (frame.getWindowWidth() - 100 < vehicle.getX()) {
@@ -22,8 +24,8 @@ public class TimerListener implements ActionListener {
                 int y = (int) Math.round(vehicle.getY());
 
                 if (vehicle instanceof Volvo240) {
-                    if ((Math.abs(vehicle.getX() - volvoshop.getX())) < 50 && Math.abs((vehicle.getY() - volvoshop.getY())) < 50) {
-                        volvoshop.loadCar((Volvo240) vehicle);
+                    if ((Math.abs(vehicle.getX() - volvoShop.getX())) < 50 && Math.abs((vehicle.getY() - volvoShop.getY())) < 50) {
+                        volvoShop.loadCar(vehicle);
                         vehicle.set_canMove(false);
                         frame.drawPanel.volvoImage = null;
                     }
