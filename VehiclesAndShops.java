@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class VehiclesAndShops {
     ArrayList<Vehicle> vehicles;
     ArrayList<AutoShop> shops;
+    ArrayList allitems;
 
-    public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops) {
+    public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops, ArrayList<Object> allitems) {
         this.vehicles = vehicles;
         this.shops = shops;
+        this.allitems = allitems;
     }
     void gas(int amount) {
         double gas = ((double) amount) / 100;
