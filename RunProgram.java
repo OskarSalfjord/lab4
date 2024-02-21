@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Objects;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -16,21 +18,25 @@ public class RunProgram {
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
 
-    private VehiclesAndShops vas = new VehiclesAndShops();
-    //private CarView view = new CarView("CarSim 1.1");
 
 
 
     public static void main(String[] args) {
         // Instance of this class
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
 
-        cc.cars.add(new Volvo240(Color.BLUE, 0, 302, 0));
-        cc.cars.add(new Saab95(Color.CYAN, 0, 200, 0));
-        cc.cars.add(new Scania(Color.BLACK, 0, 300, 0));
+        vehicles.add(new Volvo240(Color.BLUE, 0, 302, 0));
+        vehicles.add(new Saab95(Color.CYAN, 0, 200, 0));
+        vehicles.add(new Scania(Color.BLACK, 0, 300, 0));
+
+        ArrayList<AutoShop> autoShops = new ArrayList<>();
+        autoShops.add(new AutoShop(5,null, 100, 100));
 
 
         // Start a new view and send a reference of self
         CarView view = new CarView("CarSim 1.1");
+        VehiclesAndShops vas = new VehiclesAndShops(vehicles, autoShops);
+        ButtonController bc = new ButtonController(view, vas);
 
         // Start the timer
         cc.timer.start();
