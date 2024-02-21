@@ -13,54 +13,57 @@ public class ButtonController {
     public ButtonController(CarView frame, VehiclesAndShops vehicles) {
         this.frame = frame;
         this.vehicles = vehicles;
+        assignButtons();
     }
+
+    void assignButtons() {
     frame.gasButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             vehicles.gas(frame.gasAmount);
         }
     });
-        startButton.addActionListener(new ActionListener() {
+        frame.startButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            carC.startEngine();
+            vehicles.startEngine();
         }
     });
-        stopButton.addActionListener(new ActionListener() {
+        frame.stopButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            carC.stopEngine();
+            vehicles.stopEngine();
         }
     });
-        brakeButton.addActionListener(new ActionListener() {
+        frame.brakeButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            carC.brake(gasAmount);
+            vehicles.brake(frame.gasAmount);
         }
     });
-        turboOnButton.addActionListener(new ActionListener() {
+        frame.turboOnButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            carC.turboOn();
+            vehicles.turboOn();
         }
     });
-        turboOffButton.addActionListener(new ActionListener() {
+        frame.turboOffButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            carC.turboOff();
+            vehicles.turboOff();
         }
     });
-        liftBedButton.addActionListener(new ActionListener() {
+        frame.liftBedButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            carC.raiseRamp();
+            vehicles.raiseRamp();
         }
     });
-        lowerBedButton.addActionListener(new ActionListener() {
+        frame.lowerBedButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            carC.lowerRamp();
+            vehicles.lowerRamp();
         }
     });
 
-}
+}}

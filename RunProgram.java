@@ -17,8 +17,7 @@ public class RunProgram {
     private Timer timer = new Timer(delay, new TimerListener());
 
     private VehiclesAndShops vas = new VehiclesAndShops();
-    private ButtonController bc = new ButtonController();
-    private CarView view = new CarView("CarSim 1.1");
+    //private CarView view = new CarView("CarSim 1.1");
 
 
 
@@ -31,7 +30,7 @@ public class RunProgram {
 
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+        CarView view = new CarView("CarSim 1.1");
 
         // Start the timer
         cc.timer.start();
