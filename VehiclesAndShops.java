@@ -69,12 +69,19 @@ public class VehiclesAndShops implements MoveImage{
             }
         }
     }
-//TODO
-    @Override
-    public double getX(Object vehicleOrAutoshop) {return 0;}
 
     @Override
-    public double getY(Object vehicleOrAutoshop) {return 0;}
+    public double getX(Object vehicleOrAutoshop) {
+        return 0;
+    }
+
     @Override
-    public BufferedImage getImage(Object vehicleOrAutoShop) {return null;}
+    public double getY(Object vehicleOrAutoshop) {
+        return 0;
+    }
+
+    @Override
+    public BufferedImage getImage(Object vehicleOrAutoShop) {
+        return null;
+    }
 }
