@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Publisher {
+public class EventManager {
     private List<Subscribers> listeners;
 
     public void subscribe(Subscribers subscriber) {
