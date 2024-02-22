@@ -2,7 +2,7 @@
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-public class AutoShop <T extends Car> implements Loadable<T>, MoveImage{
+public class AutoShop <T extends Car> extends PrintableObject implements Loadable<T> {
     public final int capacity;
     protected List<T> carsInShop; // Behöver checka att vi bara tar emot bilar
     private double x;
@@ -11,6 +11,7 @@ public class AutoShop <T extends Car> implements Loadable<T>, MoveImage{
     private String shopImage;
 
     public AutoShop(int capacity, List<T> carsInShop, double x, double y, String shopImage) {
+        super(shopImage, x, y);
         if (capacity > 0) {
             this.capacity = capacity;
         } else {

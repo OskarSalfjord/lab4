@@ -1,12 +1,13 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 // This panel represents the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel implements MoveImage{
+public class DrawPanel extends JPanel {
 
     // Just a single image, TODO: Generalize
 
@@ -19,12 +20,15 @@ public class DrawPanel extends JPanel implements MoveImage{
     Point scaniaPoint = new Point(0,300);
     BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300,300);
+    ArrayList<Vehicle> =
+    VehiclesAndShops allPrintableObjects = new VehiclesAndShops(<>, <>)
 
 
     // TODO: Make this general for all cars
     void moveitVolvo(int x, int y){
         volvoPoint.x = x;
         volvoPoint.y = y;
+        allPrintableObjects.
     }
     void moveItGeneral(Vehicle vehicle, int x, int y) {
         vehicle.setPosition(x, y);
@@ -71,17 +75,5 @@ public class DrawPanel extends JPanel implements MoveImage{
         g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null);
         g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
         g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
-    }
-    @Override
-    public double getX(VehiclesAndShops object) {
-        return 0.0;
-    }
-    @Override
-    public double getY(VehiclesAndShops object) {
-        return 0.0;
-    }
-    @Override
-    public BufferedImage getImage(VehiclesAndShops object) {
-        return null;
     }
 }
