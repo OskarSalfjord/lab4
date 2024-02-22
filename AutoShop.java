@@ -23,6 +23,7 @@ public class AutoShop <T extends Car> implements Loadable<T>{
     }
     public double getX() {return x;}
     public double getY() {return y;}
+    public String getShopImage() {return shopImage;}
     @Override
     public int getCapacity() {return capacity;}
     @Override
