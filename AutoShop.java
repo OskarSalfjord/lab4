@@ -5,11 +5,7 @@ import java.util.List;
 public class AutoShop <T extends Car> extends PrintableObject implements Loadable<T> {
     public final int capacity;
     protected List<T> carsInShop; // Behöver checka att vi bara tar emot bilar
-    private double x;
-    private double y;
     protected String shoptype;
-    private String shopImage;
-
     public AutoShop(int capacity, List<T> carsInShop, double x, double y, String shopImage) {
         super(shopImage, x, y);
         if (capacity > 0) {
@@ -18,20 +14,7 @@ public class AutoShop <T extends Car> extends PrintableObject implements Loadabl
             throw new IllegalArgumentException("Capacity must be > 0");
         }
         this.carsInShop = carsInShop;
-        this.x = x;
-        this.y = y;
         this.shoptype = String.valueOf(carsInShop.getClass());
-        this.shopImage = shopImage;
-    }
-    @Override
-    public double getX() {return x;}
-
-    @Override
-    public double getY() {return y;}
-
-    @Override
-    public String getImage() {
-        return shopImage;
     }
 
     @Override

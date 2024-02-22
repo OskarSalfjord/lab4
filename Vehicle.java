@@ -21,12 +21,9 @@ public abstract class Vehicle extends PrintableObject implements Movable {
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.weight = weight;
-        this.x = x;
-        this.y = y;
         this.direction = direction;
         this.engineOn = false;
         this.canMove = true;
-        this.img = img;
     }
     protected boolean getEngineOn() {
         return this.engineOn;
@@ -44,18 +41,6 @@ public abstract class Vehicle extends PrintableObject implements Movable {
         return currentSpeed;
     }
     protected void flipCurrentSpeed() {currentSpeed = -currentSpeed;}
-    @Override
-    public double getX() {
-        return x;
-    }
-    @Override
-    public double getY() {
-        return y;
-    }
-    @Override
-    public String getImage() {
-        return img;
-    }
     protected double getDirection() {
         return direction;
     }
