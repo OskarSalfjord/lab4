@@ -134,6 +134,5 @@ public class VehiclesAndShops implements MoveImage{
         else {
             throw new IllegalArgumentException("The method only accepts cars and shops as argument");
         }
-        return null;
     }
 }
