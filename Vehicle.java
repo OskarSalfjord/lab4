@@ -2,7 +2,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class Vehicle implements Movable{
+public abstract class Vehicle implements Movable, MoveImage{
     //FIXA FLAK INTERFACE?
     private Color color;
     private final double enginePower;
@@ -42,10 +42,12 @@ public abstract class Vehicle implements Movable{
         return currentSpeed;
     }
     protected void flipCurrentSpeed() {currentSpeed = -currentSpeed;}
-    protected double getX() {
+    @Override
+    public double getX() {
         return x;
     }
-    protected double getY() {
+    @Override
+    public double getY() {
         return y;
     }
     protected double getDirection() {
@@ -61,7 +63,8 @@ public abstract class Vehicle implements Movable{
         color = clr;
     }
     protected boolean get_canMove() {return canMove;}
-    protected String getImg() {return img;}
+    @Override
+    public String getImage() {return img;}
     protected void set_canMove(boolean canMove) {this.canMove = canMove;}
     protected void startEngine(){
         this.engineOn = true;

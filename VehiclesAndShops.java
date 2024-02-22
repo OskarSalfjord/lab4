@@ -1,14 +1,15 @@
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class VehiclesAndShops implements MoveImage{
     ArrayList<Vehicle> vehicles;
     ArrayList<AutoShop> shops;
-    //ArrayList allitems;
+    ArrayList allitems;
 
     public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops) {
         this.vehicles = vehicles;
         this.shops = shops;
-        //this.allitems = allitems;
+        this.allitems = allitems;
     }
     void gas(int amount) {
         double gas = ((double) amount) / 100;
@@ -68,6 +69,12 @@ public class VehiclesAndShops implements MoveImage{
             }
         }
     }
+
+    @Override
+    public double getX() {
+        return 0;
+    }
+
     @Override
     public double getX(Object carOrShop) {
         if (carOrShop instanceof AutoShop<?>) {
@@ -89,6 +96,11 @@ public class VehiclesAndShops implements MoveImage{
         else {
             throw new IllegalArgumentException("The method only accepts cars and shops as argument");
         }
+    }
+
+    @Override
+    public double getY() {
+        return 0;
     }
 
     @Override
@@ -114,6 +126,11 @@ public class VehiclesAndShops implements MoveImage{
         }
     }
 
+    @Override
+    public BufferedImage getImage() {
+        return null;
+    }
+
     public String getImage(Object carOrShop) {
         if (carOrShop instanceof AutoShop<?>) {
             if (shops.contains(carOrShop)) {
@@ -134,6 +151,5 @@ public class VehiclesAndShops implements MoveImage{
         else {
             throw new IllegalArgumentException("The method only accepts cars and shops as argument");
         }
-        return null;
     }
 }

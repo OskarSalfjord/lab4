@@ -112,6 +112,6 @@ public class CarView extends JFrame{
         // Make the frame visible
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultClouraseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

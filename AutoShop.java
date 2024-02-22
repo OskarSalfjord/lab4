@@ -1,7 +1,8 @@
 
+import java.awt.image.BufferedImage;
 import java.util.List;
 
-public class AutoShop <T extends Car> implements Loadable<T>{
+public class AutoShop <T extends Car> implements Loadable<T>, MoveImage{
     public final int capacity;
     protected List<T> carsInShop; // Behöver checka att vi bara tar emot bilar
     private double x;
@@ -21,9 +22,17 @@ public class AutoShop <T extends Car> implements Loadable<T>{
         this.shoptype = String.valueOf(carsInShop.getClass());
         this.shopImage = shopImage;
     }
+    @Override
     public double getX() {return x;}
+
+    @Override
     public double getY() {return y;}
-    public String getShopImage() {return shopImage;}
+
+    @Override
+    public String getImage() {
+        return shopImage;
+    }
+
     @Override
     public int getCapacity() {return capacity;}
     @Override
