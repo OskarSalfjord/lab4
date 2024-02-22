@@ -14,6 +14,7 @@ public abstract class Vehicle implements Movable{
     private double direction;// direction in radians
     private boolean engineOn;
     private boolean canMove;
+    protected String img;
     public Vehicle(Color color, double enginePower, String modelName, double weight, double x, double y, double direction) {
         this.color = color;
         this.enginePower = enginePower;
@@ -60,6 +61,7 @@ public abstract class Vehicle implements Movable{
         color = clr;
     }
     protected boolean get_canMove() {return canMove;}
+    protected String getImg() {return img;}
     protected void set_canMove(boolean canMove) {this.canMove = canMove;}
     protected void startEngine(){
         this.engineOn = true;

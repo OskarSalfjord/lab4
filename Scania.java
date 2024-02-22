@@ -4,11 +4,10 @@ import java.awt.image.BufferedImage;
 
 public class Scania extends Truck implements Ramp{
     private RampC<Integer> scaniaRamp;
-    private String scaniaImage;
     public Scania(Color color, double x, double y, double direction) {
         super(2, color, 200, "Scania", 5000, x, y, direction);
         scaniaRamp = new RampC<>(0);
-        this.scaniaImage = "pics/Scania.jpg";
+        this.img = "pics/Scania.jpg";
     }
 
     protected int getRampAngle() {return scaniaRamp.getRampStatus();}

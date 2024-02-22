@@ -6,8 +6,10 @@ public class AutoShop <T extends Car> implements Loadable<T>{
     protected List<T> carsInShop; // Behöver checka att vi bara tar emot bilar
     private double x;
     private double y;
+    protected String shoptype;
+    private String shopImage;
 
-    public AutoShop(int capacity, List<T> carsInShop, double x, double y) {
+    public AutoShop(int capacity, List<T> carsInShop, double x, double y, String shopImage) {
         if (capacity > 0) {
             this.capacity = capacity;
         } else {
@@ -16,6 +18,8 @@ public class AutoShop <T extends Car> implements Loadable<T>{
         this.carsInShop = carsInShop;
         this.x = x;
         this.y = y;
+        this.shoptype = String.valueOf(carsInShop.getClass());
+        this.shopImage = shopImage;
     }
     public double getX() {return x;}
     public double getY() {return y;}
