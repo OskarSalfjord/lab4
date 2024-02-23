@@ -1,11 +1,11 @@
 import java.util.List;
 
 public abstract class PrintableObject implements MoveImage {
-    private final String img;
+    private final String imgAdress;
     double x;
     double y;
-    protected PrintableObject(String img, double x, double y) {
-        this.img = img;
+    protected PrintableObject(String imgAdress, double x, double y) {
+        this.imgAdress = imgAdress;
         this.x = x;
         this.y = y;
     }
@@ -19,6 +19,6 @@ public abstract class PrintableObject implements MoveImage {
     }
     @Override
     public String getImage(){
-        return this.img;
+        return this.imgAdress;
     }
 }

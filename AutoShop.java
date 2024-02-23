@@ -6,8 +6,9 @@ public class AutoShop <T extends Car> extends PrintableObject implements Loadabl
     public final int capacity;
     protected List<T> carsInShop; // Behöver checka att vi bara tar emot bilar
     protected String shoptype;
-    public AutoShop(int capacity, List<T> carsInShop, double x, double y, String shopImage) {
-        super(shopImage, x, y);
+    protected BufferedImage shopImg;
+    public AutoShop(int capacity, List<T> carsInShop, double x, double y, String imgAdress) {
+        super(imgAdress, x, y);
         if (capacity > 0) {
             this.capacity = capacity;
         } else {

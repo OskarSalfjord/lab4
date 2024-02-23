@@ -7,10 +7,12 @@ import javax.swing.*;
 
 // This panel represents the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel {
+public class DrawPanel extends JPanel implements Subscribers {
 
     // Just a single image, TODO: Generalize
+    PrintableObject obj;
 
+    VehiclesAndShops vas;
     BufferedImage volvoImage;
     // To keep track of a single car's position
     Point volvoPoint = new Point(0, 302);
@@ -20,15 +22,12 @@ public class DrawPanel extends JPanel {
     Point scaniaPoint = new Point(0,300);
     BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300,300);
-    ArrayList<Vehicle> =
-    VehiclesAndShops allPrintableObjects = new VehiclesAndShops(<>, <>)
 
 
     // TODO: Make this general for all cars
     void moveitVolvo(int x, int y){
         volvoPoint.x = x;
         volvoPoint.y = y;
-        allPrintableObjects.
     }
     void moveItGeneral(Vehicle vehicle, int x, int y) {
         vehicle.setPosition(x, y);
@@ -43,10 +42,11 @@ public class DrawPanel extends JPanel {
     }
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawPanel(int x, int y, VehiclesAndShops vas) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.pink);
+        this.vas = vas;
         // Print an error message in case file is not found with a try/catch block
         try {
             // You can remove the "pics" part if running outside of IntelliJ and
@@ -55,10 +55,20 @@ public class DrawPanel extends JPanel {
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage =
-            volvoWorkshopImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/VolvoBrand.jpg"));
-            saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
-            scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
+           for (Object printable : vas.allitems) {
+               if (printable instanceof Vehicle) {
+                   ((Vehicle) printable).VehiceleImg = ImageIO.read(DrawPanel.class.getResourceAsStream(((Vehicle) printable).getImage()));
+               }
+               else if (printable instanceof AutoShop) {
+                   ((AutoShop<?>) printable).shopImg = ImageIO.read(DrawPanel.class.getResourceAsStream(((AutoShop) printable).getImage()));
+               }
+           }
+
+
+//            volvoImage =
+//            volvoWorkshopImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/VolvoBrand.jpg"));
+//            saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
+//            scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
         } catch (IOException ex)
         {
             ex.printStackTrace();
@@ -71,9 +81,21 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null);
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
-        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
+        for (Object printable : vas.allitems) {
+            if (printable instanceof Vehicle) {
+                g.drawImage(((Vehicle) printable).VehiceleImg, Math.round(((Vehicle) printable).getX()), Math.round(((Vehicle) printable).getY()), null);
+            } else if (printable instanceof AutoShop) {
+                g.drawImage(((AutoShop) printable).shopImg, Math.round(((AutoShop) printable).getX()), Math.round(((AutoShop) printable).getY()), null);
+            }
+        }
+//        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
+//        g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null);
+//        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
+//        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
+    }
+
+    @Override
+    public void updatePosition(Vehicle movedVehicle, double x, double y) {
+
     }
 }

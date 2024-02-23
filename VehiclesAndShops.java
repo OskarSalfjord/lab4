@@ -5,6 +5,7 @@ public class VehiclesAndShops {
     ArrayList<Vehicle> vehicles;
     ArrayList<AutoShop> shops;
     ArrayList allitems;
+    private EventManager manageMovement;
 
     public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops) {
         this.vehicles = vehicles;
@@ -70,3 +71,5 @@ public class VehiclesAndShops {
         }
     }
 }
+
+//Skapa modell som observe när saker rör på sig, som notifyar drawPanel varje timer isch typ

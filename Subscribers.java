@@ -1,3 +1,3 @@
 public interface Subscribers {
-    public void update(Object context); // Uppdatera argument vid implementation
+    public void updatePosition(Vehicle movedVehicle, double x, double y); // Uppdatera argument vid implementation
 }

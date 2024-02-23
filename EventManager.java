@@ -11,9 +11,9 @@ public class EventManager {
         listeners.remove(subscriber);
     }
 
-    public void notify(Object data) { // Byt ut Object inom sinom tid
+    public void notifyMovement(Vehicle movedVehicle, double x, double y) {
         for (Subscribers subscriber: listeners) {
-            subscriber.update(data);
+            subscriber.updatePosition(movedVehicle, x, y);
         }
     }
 }

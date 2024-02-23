@@ -6,6 +6,8 @@ public class TimerListener implements ActionListener {
     ArrayList<Vehicle> vehicles;
     AutoShop<Car> volvoShop;
     CarView frame;
+    EventManager manageMovement;
+    manageMovement.subscribe(frame.drawPanel)
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
             if (frame.getWindowWidth() - 100 < vehicle.getX()) {
@@ -20,8 +22,9 @@ public class TimerListener implements ActionListener {
                 vehicle.startEngine();
             } else if (vehicle.get_canMove()) {
                 vehicle.move();
-                int x = (int) Math.round(vehicle.getX());
-                int y = (int) Math.round(vehicle.getY());
+                int x = (int) Math.round(vehicle.getX()); // Att ta bort
+                int y = (int) Math.round(vehicle.getY()); // Att ta bort
+                frame.drawPanel.moveItGeneral(vehicle, x, y);
 
                 if (vehicle instanceof Volvo240) {
                     if ((Math.abs(vehicle.getX() - volvoShop.getX())) < 50 && Math.abs((vehicle.getY() - volvoShop.getY())) < 50) {
