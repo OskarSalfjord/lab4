@@ -27,14 +27,13 @@ public class TimerListener implements ActionListener {
                 vehicle.move();
                 frame.drawPanel.repaint();
 
-                if (vehicle instanceof Volvo240) {
-                    for (AutoShop<Car> shop : shops)
-                    if ((shop instanceof AutoShop<Volvo240>) && (Math.abs(vehicle.getX() - shop.getX())) < 50 && Math.abs((vehicle.getY() - shop.getY())) < 50) {
-                        shop.loadCar((Volvo240) vehicle);
-                        vehicle.set_canMove(false);
-                        //frame.drawPanel.volvoImage = null;
+//                if (vehicle instanceof Volvo240) {
+//                    for (AutoShop<Car> shop : shops)
+//                    if ((shop instanceof AutoShop<Volvo240>) && (Math.abs(vehicle.getX() - shop.getX())) < 50 && Math.abs((vehicle.getY() - shop.getY())) < 50) {
+//                        shop.loadCar((Volvo240) vehicle);
+//                        vehicle.set_canMove(false);
+//                        //frame.drawPanel.volvoImage = null;
                 }
             }
         }
     }
-}

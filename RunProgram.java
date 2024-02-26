@@ -26,14 +26,14 @@ public class RunProgram {
         int delay = rp.delay;
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
         ArrayList<Volvo240> volvoList1 = new ArrayList<>();
-        ArrayList<Vehicle> allCarsList1 = new ArrayList<>();
 
-        allCarsList1.add(new Volvo240(Color.BLUE, 0, 302, 0));
-        allCarsList1.add(new Saab95(Color.CYAN, 0, 200, 0));
-        allCarsList1.add(new Scania(Color.BLACK, 0, 300, 0));
+        allVehicles.add(new Volvo240(Color.BLUE, 0, 302, 0));
+        allVehicles.add(new Saab95(Color.CYAN, 0, 200, 0));
+        allVehicles.add(new Scania(Color.BLACK, 0, 300, 0));
+        allVehicles.add(new Volvo240(Color.BLACK, 300, 300, 0));
 
         ArrayList<AutoShop<Car>> allShops = new ArrayList<>();
-        AutoShop<Volvo240> volvoshop1 = new AutoShop<Volvo240>(5, volvoList1, 100, 100, "pics/VolvoBrand.jpg");
+        AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 200, "pics/VolvoBrand.jpg");
         allShops.add(volvoshop1);
 
 

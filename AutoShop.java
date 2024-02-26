@@ -16,6 +16,7 @@ public class AutoShop <T extends Car> extends PrintableObject implements Loadabl
         }
         this.carsInShop = carsInShop;
         this.shoptype = String.valueOf(carsInShop.getClass());
+        this.imgAdress = imgAdress;
     }
 
     @Override

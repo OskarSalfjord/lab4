@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
  * It initializes with being center on the screen and attaching it's controller in it's state.
@@ -44,10 +45,11 @@ public class CarView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, VehiclesAndShops vas){
-        initComponents(framename);
+    public CarView(String framename, VehiclesAndShops<MoveImage> vas){
         this.vas = vas;
         DrawPanel drawPanel = new DrawPanel(X, Y-240, vas);
+        this.drawPanel = drawPanel;
+        initComponents(framename);
     }
 
     // Sets everything in place and fits everything
@@ -113,6 +115,6 @@ public class CarView extends JFrame{
         // Make the frame visible
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
-        this.setDefaultClouraseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultClouraseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
