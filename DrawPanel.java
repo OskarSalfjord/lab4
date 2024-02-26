@@ -28,12 +28,7 @@ public class DrawPanel extends JPanel implements Subscribers {
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
            for (MoveImage printable : vas.allItems) {
-               if (printable instanceof Vehicle) {
-                   ((Vehicle) printable).VehiceleImg = ImageIO.read(DrawPanel.class.getResourceAsStream(((Vehicle) printable).getImage()));
-               }
-               else if (printable instanceof AutoShop) {
-                   ((AutoShop<?>) printable).shopImg = ImageIO.read(DrawPanel.class.getResourceAsStream(((AutoShop) printable).getImage()));
-               }
+               printable.setBufferedImage(ImageIO.read(DrawPanel.class.getResourceAsStream(printable.getImage())));
            }
 
 
@@ -54,10 +49,7 @@ public class DrawPanel extends JPanel implements Subscribers {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (PrintableObject printable : vas.allItems) {
-          {
-              g.drawImage(printable.getImage(), (int)Math.round(printable.getX()), (int)Math.round(printable.getY()), null);
-          }
-
+              g.drawImage(printable.getBufferedImage(), (int)Math.round(printable.getX()), (int)Math.round(printable.getY()), null);
         }
     }
 

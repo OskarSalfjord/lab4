@@ -7,4 +7,8 @@ public interface MoveImage {
     double getY();
 
     String getImage();
+
+    BufferedImage getBufferedImage();
+
+    void setBufferedImage(BufferedImage img);
 }
