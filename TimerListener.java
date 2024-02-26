@@ -7,9 +7,10 @@ public class TimerListener implements ActionListener {
     ArrayList<AutoShop<Car>> shops;
     CarView frame;
 
-    public TimerListener(ArrayList<Vehicle> vehicles, ArrayList<AutoShop<Car>> shops) {
+    public TimerListener(ArrayList<Vehicle> vehicles, ArrayList<AutoShop<Car>> shops, CarView frame) {
     this.vehicles = vehicles;
     this.shops = shops;
+    this.frame = frame;
 }
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
@@ -18,12 +19,15 @@ public class TimerListener implements ActionListener {
                 vehicle.setDirection(vehicle.getDirection() - Math.PI);
                 vehicle.stopEngine();
                 vehicle.startEngine();
+                System.out.println("Collision registered");
             } else if (vehicle.getX() < 0) {
                 vehicle.setPosition(0, vehicle.getY());
                 vehicle.setDirection(vehicle.getDirection() - Math.PI);
                 vehicle.stopEngine();
                 vehicle.startEngine();
+                System.out.println("Collision registered");
             } else if (vehicle.get_canMove()) {
+                System.out.println("We should move");
                 vehicle.move();
                 frame.drawPanel.repaint();
 

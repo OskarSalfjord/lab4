@@ -21,6 +21,8 @@ public class VehiclesAndShops <T extends MoveImage> {
         for (Vehicle car : vehicles
         ) {
             car.gas(gas);
+            System.out.println("gasing");
+            System.out.println(car.getX());
         }
     }
     void startEngine() {

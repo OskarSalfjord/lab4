@@ -33,15 +33,15 @@ public class RunProgram {
         allVehicles.add(new Volvo240(Color.BLACK, 300, 300, 0));
 
         ArrayList<AutoShop<Car>> allShops = new ArrayList<>();
-        AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 200, "pics/VolvoBrand.jpg");
+        AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 300, "pics/VolvoBrand.jpg");
         allShops.add(volvoshop1);
 
 
         // Start a new view and send a reference of self
         VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops);
         CarView view = new CarView("CarSim 1.1", vas);
+        Timer timer = new Timer(delay, new TimerListener(allVehicles, allShops, view));
         ButtonController bc = new ButtonController(view, vas);
-        Timer timer = new Timer(delay, new TimerListener(allVehicles, allShops));
 
         // Start the timer
         timer.start();

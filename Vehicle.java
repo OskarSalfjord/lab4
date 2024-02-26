@@ -73,8 +73,13 @@ public abstract class Vehicle extends PrintableObject implements Movable {
     }
     @Override
     public void move() {
-        y = y+getCurrentSpeed()*Math.sin(direction);
-        x = x+getCurrentSpeed()*Math.cos(direction);
+        System.out.println(getCurrentSpeed());
+        System.out.println(getDirection());
+        System.out.println(getX());
+        setPosition(x + getCurrentSpeed()*Math.cos(direction), y + getCurrentSpeed()*Math.sin(direction));
+//        y = y+(getCurrentSpeed()*Math.sin(direction));
+//        x = x+(getCurrentSpeed()*Math.cos(direction));
+        System.out.println(getX());
     }
     protected abstract double speedFactor();
     protected double getSpeedFactor() {
