@@ -38,8 +38,8 @@ public class RunProgram {
 
 
         // Start a new view and send a reference of self
-        CarView view = new CarView("CarSim 1.1");
-        VehiclesAndShops vas = new VehiclesAndShops(allVehicles, allShops);
+        VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops);
+        CarView view = new CarView("CarSim 1.1", vas);
         ButtonController bc = new ButtonController(view, vas);
         Timer timer = new Timer(delay, new TimerListener(allVehicles, allShops));
 

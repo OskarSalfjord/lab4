@@ -1,16 +1,20 @@
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class VehiclesAndShops {
+public class VehiclesAndShops <T extends MoveImage> {
     ArrayList<Vehicle> vehicles;
     ArrayList<AutoShop> shops;
-    ArrayList allitems;
+    ArrayList<PrintableObject> allItems;
     private EventManager manageMovement;
 
     public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops) {
         this.vehicles = vehicles;
         this.shops = shops;
-        this.allitems = allitems;
+        ArrayList<PrintableObject> allItems = new ArrayList<>();
+        allItems.addAll(vehicles);
+        allItems.addAll(shops);
+        this.allItems = allItems;
+
     }
     void gas(int amount) {
         double gas = ((double) amount) / 100;
