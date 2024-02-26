@@ -32,8 +32,8 @@ public class RunProgram {
         allCarsList1.add(new Saab95(Color.CYAN, 0, 200, 0));
         allCarsList1.add(new Scania(Color.BLACK, 0, 300, 0));
 
-        ArrayList<AutoShop> allShops = new ArrayList<>();
-        AutoShop volvoshop1 = new AutoShop(5, volvoList1, 100, 100, "pics/VolvoBrand.jpg");
+        ArrayList<AutoShop<Car>> allShops = new ArrayList<>();
+        AutoShop<Volvo240> volvoshop1 = new AutoShop<Volvo240>(5, volvoList1, 100, 100, "pics/VolvoBrand.jpg");
         allShops.add(volvoshop1);
 
 

@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 public class TimerListener implements ActionListener {
     ArrayList<Vehicle> vehicles;
-    AutoShop<Car> volvoShop;
+    ArrayList<AutoShop<Car>> shops;
     CarView frame;
-    EventManager manageMovement;
-    manageMovement.subscribe(frame.drawPanel)
+
+    public TimerListener(ArrayList<Vehicle> vehicles, ArrayList<AutoShop<Car>> shops) {
+    this.vehicles = vehicles;
+    this.shops = shops;
+}
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
             if (frame.getWindowWidth() - 100 < vehicle.getX()) {
@@ -22,30 +25,14 @@ public class TimerListener implements ActionListener {
                 vehicle.startEngine();
             } else if (vehicle.get_canMove()) {
                 vehicle.move();
-//                int x = (int) Math.round(vehicle.getX()); // Att ta bort
-//                int y = (int) Math.round(vehicle.getY()); // Att ta bort
-//                frame.drawPanel.moveItGeneral(vehicle, x, y);
+                frame.drawPanel.repaint();
 
                 if (vehicle instanceof Volvo240) {
-                    if ((Math.abs(vehicle.getX() - volvoShop.getX())) < 50 && Math.abs((vehicle.getY() - volvoShop.getY())) < 50) {
-                        volvoShop.loadCar((Volvo240) vehicle);
+                    for (AutoShop<Car> shop : shops)
+                    if ((shop instanceof AutoShop<Volvo240>) && (Math.abs(vehicle.getX() - shop.getX())) < 50 && Math.abs((vehicle.getY() - shop.getY())) < 50) {
+                        shop.loadCar((Volvo240) vehicle);
                         vehicle.set_canMove(false);
                         //frame.drawPanel.volvoImage = null;
-                    }
-                    else {
-                        //frame.drawPanel.moveItGeneral(vehicle, x, y);
-                        //frame.drawPanel.moveitVolvo(x, y);
-                        // repaint() calls the paintComponent method of the panel
-                        frame.drawPanel.repaint();}
-                } else if (vehicle instanceof Saab95) {
-                    //frame.drawPanel.moveItGeneral(vehicle, x, y);
-                    //frame.drawPanel.moveitSaab(x, y);
-                    // repaint() calls the paintComponent method of the panel
-                    frame.drawPanel.repaint();
-                } else if (vehicle instanceof Scania) {
-                    //frame.drawPanel.moveItGeneral(vehicle, x, y);
-                    //frame.drawPanel.moveitScania(x, y);
-                    frame.drawPanel.repaint();
                 }
             }
         }
