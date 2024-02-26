@@ -8,7 +8,7 @@ public class AutoShop <T extends Car> extends PrintableObject implements Loadabl
     protected String shoptype;
     protected BufferedImage shopImg;
     public AutoShop(int capacity, List<T> carsInShop, double x, double y, String imgAdress) {
-        super(imgAdress, x, y);
+        super(x, y);
         if (capacity > 0) {
             this.capacity = capacity;
         } else {

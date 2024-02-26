@@ -1,15 +1,15 @@
 import java.awt.image.BufferedImage;
 
 public abstract class PrintableObject implements MoveImage {
-    private final String imgAdress;
+    protected String imgAdress;
     public BufferedImage bufferedImage;
     double x;
     double y;
-    protected PrintableObject(String imgAdress, double x, double y) {
-        this.imgAdress = imgAdress;
+    protected PrintableObject(double x, double y) {
         this.x = x;
         this.y = y;
         this.bufferedImage = null;
+        this.imgAdress = null;
     }
     @Override
     public double getX(){

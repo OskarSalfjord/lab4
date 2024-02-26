@@ -7,7 +7,7 @@ public class Scania extends Truck implements Ramp{
     public Scania(Color color, double x, double y, double direction) {
         super(2, color, 200, "Scania", 5000, x, y, direction);
         scaniaRamp = new RampC<>(0);
-        this.img = "pics/Scania.jpg";
+        this.imgAdress = "pics/Scania.jpg";
     }
 
     protected int getRampAngle() {return scaniaRamp.getRampStatus();}

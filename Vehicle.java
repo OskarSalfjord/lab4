@@ -15,8 +15,8 @@ public abstract class Vehicle extends PrintableObject implements Movable {
     private boolean engineOn;
     private boolean canMove;
     private EventManager ManageMovement;
-    public Vehicle(Color color, double enginePower, String modelName, double weight, double x, double y, double direction, String imgAdress) {
-        super(imgAdress, x, y);
+    public Vehicle(Color color, double enginePower, String modelName, double weight, double x, double y, double direction) {
+        super(x, y);
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;

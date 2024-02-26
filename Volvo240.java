@@ -7,7 +7,7 @@ public class Volvo240 extends Car{
     public Volvo240(Color color, double x, double y, double direction) {
         super(4, color, 100, "Volvo240", 1200, x, y, direction);
         stopEngine();
-        this.img = "pics/VolvoBrand.jpg";
+        this.imgAdress = "pics/VolvoBrand.jpg";
     }
     @Override
     public double speedFactor() {
