@@ -31,6 +31,8 @@ public class AutoShop <T extends Car> extends PrintableObject implements Loadabl
         {carsInShop.remove(carToUnload);
         return carToUnload;
     }
+
+
     @Override
     public List<T> getCarsInLoad() {return carsInShop; }
 }

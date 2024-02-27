@@ -8,12 +8,14 @@ public class TimerListener implements ActionListener {
     CarView frame;
 
     public TimerListener(ArrayList<Vehicle> vehicles, ArrayList<AutoShop<Car>> shops, CarView frame) {
-    this.vehicles = vehicles;
-    this.shops = shops;
-    this.frame = frame;
-}
+        this.vehicles = vehicles;
+        this.shops = shops;
+        this.frame = frame;
+    }
+
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
+            System.out.println("X= " + vehicle.getX());
             if (frame.getWindowWidth() - 100 < vehicle.getX()) {
                 vehicle.setPosition(frame.getWindowWidth() - 100, vehicle.getY());
                 vehicle.setDirection(vehicle.getDirection() - Math.PI);
@@ -31,13 +33,15 @@ public class TimerListener implements ActionListener {
                 vehicle.move();
                 frame.drawPanel.repaint();
 
-//                if (vehicle instanceof Volvo240) {
-//                    for (AutoShop<Car> shop : shops)
-//                    if ((shop instanceof AutoShop<Volvo240>) && (Math.abs(vehicle.getX() - shop.getX())) < 50 && Math.abs((vehicle.getY() - shop.getY())) < 50) {
-//                        shop.loadCar((Volvo240) vehicle);
-//                        vehicle.set_canMove(false);
-//                        //frame.drawPanel.volvoImage = null;
+                if (vehicle instanceof Volvo240) {
+                    for (AutoShop<Car> shop : shops)
+                        if (Math.abs(vehicle.getX() - shop.getX()) < 100 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
+                            shop.loadCar((Volvo240) vehicle);
+                            vehicle.set_canMove(false);
+                            vehicle.setBufferedImage(null);
+                        }
                 }
             }
         }
     }
+}

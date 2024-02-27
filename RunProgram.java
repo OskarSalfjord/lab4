@@ -32,7 +32,7 @@ public class RunProgram {
         allVehicles.add(new Scania(Color.BLACK, 0, 300, 0));
         allVehicles.add(new Volvo240(Color.BLACK, 300, 300, 0));
 
-        ArrayList<AutoShop<Car>> allShops = new ArrayList<>();
+        ArrayList<AutoShop<Car>>allShops = new ArrayList<>();
         AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 300, "pics/VolvoBrand.jpg");
         allShops.add(volvoshop1);
 
