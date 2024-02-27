@@ -9,8 +9,8 @@ public abstract class Vehicle extends PrintableObject implements Movable {
     private String modelName;
     private final double weight;
     protected double currentSpeed;
-    private double x;// x coordinate
-    private double y; // y coordinate
+    // private double x;// x coordinate
+    // private double y; // y coordinate
     private double direction;// direction in radians
     private boolean engineOn;
     private boolean canMove;
@@ -76,9 +76,9 @@ public abstract class Vehicle extends PrintableObject implements Movable {
         System.out.println(getCurrentSpeed());
         System.out.println(getDirection());
         System.out.println(getX());
-        setPosition(x + getCurrentSpeed()*Math.cos(direction), y + getCurrentSpeed()*Math.sin(direction));
-//        y = y+(getCurrentSpeed()*Math.sin(direction));
-//        x = x+(getCurrentSpeed()*Math.cos(direction));
+        // setPosition(x + getCurrentSpeed()*Math.cos(direction), y + getCurrentSpeed()*Math.sin(direction));
+        y = y+(getCurrentSpeed()*Math.sin(direction));
+        x = x+(getCurrentSpeed()*Math.cos(direction));
         System.out.println(getX());
     }
     protected abstract double speedFactor();

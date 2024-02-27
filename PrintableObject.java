@@ -13,7 +13,7 @@ public abstract class PrintableObject implements MoveImage {
     }
     @Override
     public double getX(){
-        return this.x;
+        return x;
     }
     @Override
     public double getY(){
