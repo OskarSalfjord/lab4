@@ -18,9 +18,9 @@ public class TimerListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
             if (frame.getWindowWidth() - 100 < vehicle.getX()) {
-                collisonManagement(vehicle, frame.getWindowWidth() - 100, vehicle.getY());
+                collisionManagement(vehicle, frame.getWindowWidth() - 100, vehicle.getY());
             } else if (vehicle.getX() < 0) {
-                collisonManagement(vehicle, 0, vehicle.getY());
+                collisionManagement(vehicle, 0, vehicle.getY());
                 vehicle.setPosition(0, vehicle.getY());
             } else if (vehicle.get_canMove()) {
                 vehicle.move();
@@ -36,7 +36,7 @@ public class TimerListener implements ActionListener {
         }
         manager.notifyMovement();
     }
-    private void collisonManagement(Vehicle vehicle, double x, double y) {
+    private void collisionManagement(Vehicle vehicle, double x, double y) {
         vehicle.setPosition(x, y);
         vehicle.setDirection(vehicle.getDirection() - Math.PI);
         vehicle.stopEngine();
