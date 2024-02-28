@@ -85,4 +85,3 @@ public class VehiclesAndShops <T extends MoveImage> {
     }
 }
 
-//Skapa modell som observe när saker rör på sig, som notifyar drawPanel varje timer isch typ
