@@ -15,6 +15,7 @@ public class RunProgram {
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     protected final int delay = 50;
+    private EventManager manager = new EventManager();
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     //private Timer timer = new Timer(delay, new TimerListener());
@@ -39,8 +40,8 @@ public class RunProgram {
 
         // Start a new view and send a reference of self
         VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops);
-        CarView view = new CarView("CarSim 1.1", vas);
-        Timer timer = new Timer(delay, new TimerListener(allVehicles, allShops, view));
+        CarView view = new CarView("CarSim 1.1", vas, rp.manager);
+        Timer timer = new Timer(delay, new TimerListener(allVehicles, allShops, view, rp.manager));
         ButtonController bc = new ButtonController(view, vas);
 
         // Start the timer

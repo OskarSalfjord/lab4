@@ -14,7 +14,6 @@ public abstract class Vehicle extends PrintableObject implements Movable {
     private double direction;// direction in radians
     private boolean engineOn;
     private boolean canMove;
-    private EventManager ManageMovement;
     public Vehicle(Color color, double enginePower, String modelName, double weight, double x, double y, double direction) {
         super(x, y);
         this.color = color;
@@ -73,13 +72,12 @@ public abstract class Vehicle extends PrintableObject implements Movable {
     }
     @Override
     public void move() {
-        System.out.println(getCurrentSpeed());
+        /*System.out.println(getCurrentSpeed());
         System.out.println(getDirection());
-        System.out.println(getX());
-        // setPosition(x + getCurrentSpeed()*Math.cos(direction), y + getCurrentSpeed()*Math.sin(direction));
+        System.out.println(getX());*/
+
         y = y+(getCurrentSpeed()*Math.sin(direction));
         x = x+(getCurrentSpeed()*Math.cos(direction));
-        System.out.println(getX());
     }
     protected abstract double speedFactor();
     protected double getSpeedFactor() {

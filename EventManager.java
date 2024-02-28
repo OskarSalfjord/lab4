@@ -1,19 +1,20 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventManager {
-    private List<Subscribers> listeners;
+    private List<Subscriber> listeners = new ArrayList<>();
 
-    public void subscribe(Subscribers subscriber) {
+    public void subscribe(Subscriber subscriber) {
         listeners.add(subscriber);
     }
 
-    public void unsubscribe(Subscribers subscriber) {
+    public void unsubscribe(Subscriber subscriber) {
         listeners.remove(subscriber);
     }
 
-    public void notifyMovement(Vehicle movedVehicle, double x, double y) {
-        for (Subscribers subscriber: listeners) {
-            subscriber.updatePosition(movedVehicle, x, y);
+    public void notifyMovement() {
+        for (Subscriber subscriber: listeners) {
+            subscriber.updatePosition();
         }
     }
 }

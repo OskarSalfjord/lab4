@@ -5,7 +5,6 @@ public class VehiclesAndShops <T extends MoveImage> {
     ArrayList<Vehicle> vehicles;
     ArrayList<AutoShop> shops;
     ArrayList<PrintableObject> allItems;
-    private EventManager manageMovement;
 
     public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops) {
         this.vehicles = vehicles;

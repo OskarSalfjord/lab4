@@ -7,7 +7,7 @@ import javax.swing.*;
 
 // This panel represents the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel implements Subscribers {
+public class DrawPanel extends JPanel implements Subscriber {
 
     // Just a single image, TODO: Generalize
     VehiclesAndShops<MoveImage> vas;
@@ -54,7 +54,7 @@ public class DrawPanel extends JPanel implements Subscribers {
     }
 
     @Override
-    public void updatePosition(Vehicle movedVehicle, double x, double y) {
-
+    public void updatePosition() {
+        super.repaint();
     }
 }

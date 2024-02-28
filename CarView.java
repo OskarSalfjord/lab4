@@ -23,6 +23,7 @@ public class CarView extends JFrame{
     protected int getWindowWidth() {
         return X;
     }
+    private EventManager manager;
 
     // The controller member
 
@@ -45,22 +46,24 @@ public class CarView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, VehiclesAndShops<MoveImage> vas){
+    public CarView(String framename, VehiclesAndShops<MoveImage> vas, EventManager manager){
         this.vas = vas;
         DrawPanel drawPanel = new DrawPanel(X, Y-240, vas);
         this.drawPanel = drawPanel;
-        initComponents(framename);
+        initComponents(framename, manager);
     }
 
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
-    private void initComponents(String title) {
+    private void initComponents(String title, EventManager manager) {
 
         this.setTitle(title);
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
+
+        manager.subscribe(drawPanel);
 
         SpinnerModel spinnerModel =
                 new SpinnerNumberModel(0, //initial value
