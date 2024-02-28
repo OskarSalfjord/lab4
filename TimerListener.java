@@ -17,33 +17,39 @@ public class TimerListener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
-            // System.out.println("X= " + vehicle.getX());
             if (frame.getWindowWidth() - 100 < vehicle.getX()) {
-                vehicle.setPosition(frame.getWindowWidth() - 100, vehicle.getY());
-                vehicle.setDirection(vehicle.getDirection() - Math.PI);
-                vehicle.stopEngine();
-                vehicle.startEngine();
-            //    System.out.println("Collision registered");
+                collisonManagement(vehicle, frame.getWindowWidth() - 100, vehicle.getY());
             } else if (vehicle.getX() < 0) {
+                collisonManagement(vehicle, 0, vehicle.getY());
                 vehicle.setPosition(0, vehicle.getY());
-                vehicle.setDirection(vehicle.getDirection() - Math.PI);
-                vehicle.stopEngine();
-                vehicle.startEngine();
-            //    System.out.println("Collision registered");
             } else if (vehicle.get_canMove()) {
-            //    System.out.println("We should move");
                 vehicle.move();
 
                 if (vehicle instanceof Volvo240) {
                     for (AutoShop<Car> shop : shops)
                         if (Math.abs(vehicle.getX() - shop.getX()) < 100 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
-                            shop.loadCar((Volvo240) vehicle);
-                            vehicle.set_canMove(false);
-                            vehicle.setBufferedImage(null);
+                            loadCar(shop, vehicle);
                         }
                 }
             }
         }
         manager.notifyMovement();
     }
+    private void collisonManagement(Vehicle vehicle, double x, double y) {
+        vehicle.setPosition(x, y);
+        vehicle.setDirection(vehicle.getDirection() - Math.PI);
+        vehicle.stopEngine();
+        vehicle.startEngine();
+    }
+
+    private void loadCar(AutoShop<Car> shop, Vehicle vehicle) {
+        shop.loadCar((Car) vehicle);
+        vehicle.set_canMove(false);
+        vehicle.setBufferedImage(null);
+    }
+
+
+
+
+
 }
