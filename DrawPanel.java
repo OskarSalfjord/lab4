@@ -49,8 +49,18 @@ public class DrawPanel extends JPanel implements Subscriber {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (PrintableObject printable : vas.allItems) {
-              g.drawImage(printable.getBufferedImage(), (int)Math.round(printable.getX()), (int)Math.round(printable.getY()), null);
+            g.drawImage(printable.getBufferedImage(), (int) Math.round(printable.getX()), (int) Math.round(printable.getY()), null);
         }
+        try {
+            if (!vas.newObjects.isEmpty())
+        for (PrintableObject newobj : vas.newObjects) {
+            newobj.setBufferedImage(ImageIO.read(DrawPanel.class.getResourceAsStream(newobj.getImage())));
+            vas.newObjects.remove(newobj);
+        }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     @Override

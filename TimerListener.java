@@ -33,6 +33,7 @@ public class TimerListener implements ActionListener {
             } else if (vehicle.get_canMove()) {
             //    System.out.println("We should move");
                 vehicle.move();
+                frame.drawPanel.repaint();
 
                 if (vehicle instanceof Volvo240) {
                     for (AutoShop<Car> shop : shops)
