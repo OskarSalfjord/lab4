@@ -20,8 +20,6 @@ public class VehiclesAndShops <T extends MoveImage> {
         for (Vehicle car : vehicles
         ) {
             car.gas(gas);
-            System.out.println("gasing");
-            System.out.println(car.getX());
         }
     }
     void startEngine() {
@@ -75,6 +73,14 @@ public class VehiclesAndShops <T extends MoveImage> {
             }
         }
     }
+    void removeCar() {
+        if (!vehicles.isEmpty()) {
+            vehicles.getFirst().setBufferedImage(null);
+            vehicles.removeFirst();
+        }
+    }
+    void addCar() {
+        //VehiclesCreator
+    }
 }
 
-//Skapa modell som observe när saker rör på sig, som notifyar drawPanel varje timer isch typ

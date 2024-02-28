@@ -19,7 +19,7 @@ public class RunProgram {
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     //private Timer timer = new Timer(delay, new TimerListener());
-
+    private VehiclesCreator v;
 
     public static void main(String[] args) {
         // Instance of this class
@@ -28,10 +28,12 @@ public class RunProgram {
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
         ArrayList<Volvo240> volvoList1 = new ArrayList<>();
 
-        allVehicles.add(new Volvo240(Color.BLUE, 0, 302, 0));
-        allVehicles.add(new Saab95(Color.CYAN, 0, 200, 0));
-        allVehicles.add(new Scania(Color.BLACK, 0, 300, 0));
-        allVehicles.add(new Volvo240(Color.BLACK, 300, 300, 0));
+        VehiclesCreator v = new VehiclesCreator();
+
+        allVehicles.add(v.createVolvo240(Color.BLACK, 0 , 0, 0));
+        allVehicles.add(v.createSaab95(Color.yellow, 100, 100, 0));
+        allVehicles.add(v.createScania(Color.blue, 200 , 100, 0));
+        allVehicles.add(v.createVolvo240(Color.CYAN, 0, 300, 0));
 
         ArrayList<AutoShop<Car>>allShops = new ArrayList<>();
         AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 300, "pics/VolvoBrand.jpg");
@@ -42,7 +44,7 @@ public class RunProgram {
         VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops);
         CarView view = new CarView("CarSim 1.1", vas, rp.manager);
         Timer timer = new Timer(delay, new TimerListener(allVehicles, allShops, view, rp.manager));
-        ButtonController bc = new ButtonController(view, vas);
+        //ButtonController bc = new ButtonController(view, vas);
 
         // Start the timer
         timer.start();

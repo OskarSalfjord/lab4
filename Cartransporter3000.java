@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.Stack;
 
-public class Cartransporter3000 extends Truck implements Loadable<Car>, Ramp{
+public class Cartransporter3000 extends Truck implements Loadable<Car>, Ramp {
     protected Stack<Car> loadedCars = new Stack<>();
     protected RampC<RampC.RampEnum> transporterRamp;
     private final int capacity;

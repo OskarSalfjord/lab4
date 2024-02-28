@@ -65,5 +65,17 @@ public class ButtonController {
             vehicles.lowerRamp();
         }
     });
+        frame.addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vehicles.addCar();
+            }
+        });
 
-}}
+        frame.removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vehicles.removeCar();
+            }
+        });
+    }}
