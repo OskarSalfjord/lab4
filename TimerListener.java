@@ -24,6 +24,7 @@ public class TimerListener implements ActionListener {
                 vehicle.setPosition(0, vehicle.getY());
             } else if (vehicle.get_canMove()) {
                 vehicle.move();
+                frame.drawPanel.repaint();
 
                 if (vehicle instanceof Volvo240) {
                     for (AutoShop<Car> shop : shops)
