@@ -14,4 +14,10 @@ public class Volvo240 extends Car{
         return getEnginePower() * 0.01 * trimFactor;
     }
 
-}
+//    @Override
+//    public PrintableObject create(Color color, double x, double y, double direction) {
+//        return c.create(color, x, y, direction);
+    }
+
+
+

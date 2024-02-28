@@ -43,12 +43,14 @@ public class CarView extends JFrame{
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
+    ButtonController bc;
 
     // Constructor
     public CarView(String framename, VehiclesAndShops<MoveImage> vas){
         this.vas = vas;
         DrawPanel drawPanel = new DrawPanel(X, Y-240, vas);
         this.drawPanel = drawPanel;
+        this.bc = new ButtonController(this, vas);
         initComponents(framename);
     }
 
@@ -115,6 +117,7 @@ public class CarView extends JFrame{
         // Make the frame visible
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
-        //this.setDefaultClouraseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 }
