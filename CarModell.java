@@ -43,8 +43,8 @@ public class CarModell {
         }
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
-                if (window_x - vehicle.getBufferedImage().getWidth() < vehicle.getX()) {
-                    collisionManagement(vehicle, window_x - vehicle.getBufferedImage().getWidth(), vehicle.getY());
+                if (window_x - 100 < vehicle.getX()) {
+                    collisionManagement(vehicle, window_x - 100, vehicle.getY());
                 } else if (vehicle.getX() < 0) {
                     collisionManagement(vehicle, 0, vehicle.getY());
                     vehicle.setPosition(0, vehicle.getY());
@@ -54,7 +54,7 @@ public class CarModell {
 
                     if (vehicle instanceof Volvo240) {
                         for (AutoShop<Car> shop : shops)
-                            if (Math.abs(vehicle.getX() - shop.getX()) < (double)vehicle.getBufferedImage().getWidth()/2 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
+                            if (Math.abs(vehicle.getX() - shop.getX()) < 100 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
                                 loadCar(shop, vehicle);
                             }
                     }

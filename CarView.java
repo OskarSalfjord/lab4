@@ -27,8 +27,6 @@ public class CarView extends JFrame{
 
     // The controller member
 
-    VehiclesAndShops<MoveImage> vas;
-    DrawPanel drawPanel;
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
@@ -49,11 +47,7 @@ public class CarView extends JFrame{
     JButton removeCarButton = new JButton("Remove Car");
 
     // Constructor
-    public CarView(String framename, VehiclesAndShops<MoveImage> vas, EventManager manager){
-        this.vas = vas;
-        DrawPanel drawPanel = new DrawPanel(X, Y-240, vas);
-        this.drawPanel = drawPanel;
-        ButtonController bc = new ButtonController(this, vas);
+    public CarView(String framename, EventManager manager){
         initComponents(framename, manager);
     }
 
@@ -65,9 +59,6 @@ public class CarView extends JFrame{
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-        this.add(drawPanel);
-
-        manager.subscribe(drawPanel);
 
         SpinnerModel spinnerModel =
                 new SpinnerNumberModel(0, //initial value

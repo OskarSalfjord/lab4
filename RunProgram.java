@@ -39,10 +39,15 @@ public class RunProgram {
         AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 300, "pics/VolvoBrand.jpg");
         allShops.add(volvoshop1);
 
-
         // Start a new view and send a reference of self
         VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops, v);
-        CarView view = new CarView("CarSim 1.1", vas, rp.manager);
+        DrawPanel drawPanel = new DrawPanel(800, 560, vas);
+        CarView view = new CarView("CarSim 1.1", rp.manager);
+        view.add(drawPanel);
+
+        rp.manager.subscribe(drawPanel);
+        ButtonController bc = new ButtonController(view, vas);
+
 
         CarModell carModell = new CarModell(vas, rp.manager);
 
