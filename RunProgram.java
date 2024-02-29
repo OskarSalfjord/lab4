@@ -14,7 +14,7 @@ public class RunProgram {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
-    protected final int delay = 50;
+    //
     private EventManager manager = new EventManager();
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
@@ -24,7 +24,7 @@ public class RunProgram {
     public static void main(String[] args) {
         // Instance of this class
         RunProgram rp = new RunProgram();
-        int delay = rp.delay;
+        // int delay = rp.delay;
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
         ArrayList<Volvo240> volvoList1 = new ArrayList<>();
 
@@ -43,11 +43,16 @@ public class RunProgram {
         // Start a new view and send a reference of self
         VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops, v);
         CarView view = new CarView("CarSim 1.1", vas, rp.manager);
-        Timer timer = new Timer(delay, new TimerListener(vas, view, rp.manager));
+
+        CarModell carModell = new CarModell(vas, rp.manager);
+
+        //Timer timer = new Timer(delay, new CarModell.TimerListener(allVehicles, allShops, rp.manager));
+
+        //Timer timer = new Timer(delay, new TimerListener(vas, view, rp.manager));
         //ButtonController bc = new ButtonController(view, vas);
 
         // Start the timer
-        timer.start();
+        //timer.start();
 
     }
 

@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 // This panel represents the animated part of the view with the car images.
-
+// Byt namn på Carview, DrawPanel. Drawpanel är vår modell som bör ha en carview, inte tvärtom
 public class DrawPanel extends JPanel implements Subscriber {
 
     // Just a single image, TODO: Generalize
@@ -67,9 +67,6 @@ public class DrawPanel extends JPanel implements Subscriber {
 
         }
     }
-
-
-
     @Override
     public void updatePosition() {
         super.repaint();
