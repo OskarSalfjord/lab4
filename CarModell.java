@@ -13,11 +13,18 @@ public class CarModell {
     EventManager manager;
     Timer timer;
 
+    ArrayList<PrintableObject> allItems;
+
+    ArrayList<Vehicle> vehicleInAutoshop = new ArrayList<>();
+
+
+
     public CarModell(VehiclesAndShops<MoveImage> vas, EventManager manager) {
         this.vas = vas;
         this.manager = manager;
         this.timer = new Timer(delay, new TimerListener(vas, manager));
         timer.start();
+        this.allItems = vas.allItems;
 
     }
     private class TimerListener implements ActionListener {
@@ -32,11 +39,12 @@ public class CarModell {
             this.manager = manager;
             this.vehicles = vas.vehicles;
             this.shops = vas.shops;
+
         }
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
-                if (window_x - 100 < vehicle.getX()) {
-                    collisionManagement(vehicle, window_x - 100, vehicle.getY());
+                if (window_x - vehicle.getBufferedImage().getWidth() < vehicle.getX()) {
+                    collisionManagement(vehicle, window_x - vehicle.getBufferedImage().getWidth(), vehicle.getY());
                 } else if (vehicle.getX() < 0) {
                     collisionManagement(vehicle, 0, vehicle.getY());
                     vehicle.setPosition(0, vehicle.getY());
@@ -46,13 +54,20 @@ public class CarModell {
 
                     if (vehicle instanceof Volvo240) {
                         for (AutoShop<Car> shop : shops)
-                            if (Math.abs(vehicle.getX() - shop.getX()) < 100 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
+                            if (Math.abs(vehicle.getX() - shop.getX()) < (double)vehicle.getBufferedImage().getWidth()/2 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
                                 loadCar(shop, vehicle);
                             }
                     }
                 }
             }
             manager.notifyMovement();
+            if(!vehicleInAutoshop.isEmpty());{
+                for(Vehicle vehicle: vehicleInAutoshop) {
+                    vehicles.remove(vehicle);
+                    allItems.remove(vehicle);
+                }
+            }
+
         }
     }
     private void collisionManagement(Vehicle vehicle, double x, double y) {
@@ -64,8 +79,8 @@ public class CarModell {
 
     private void loadCar(AutoShop<Car> shop, Vehicle vehicle) {
         shop.loadCar((Car) vehicle);
-        vehicle.set_canMove(false);
         vehicle.setBufferedImage(null);
+        vehicleInAutoshop.add(vehicle);
     }
 }
 
