@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -52,16 +53,22 @@ public class DrawPanel extends JPanel implements Subscriber {
             g.drawImage(printable.getBufferedImage(), (int) Math.round(printable.getX()), (int) Math.round(printable.getY()), null);
         }
         try {
-            if (!vas.newObjects.isEmpty())
-        for (PrintableObject newobj : vas.newObjects) {
-            newobj.setBufferedImage(ImageIO.read(DrawPanel.class.getResourceAsStream(newobj.getImage())));
-            vas.newObjects.remove(newobj);
-        }
+            if (!vas.newObjects.isEmpty()) {
+                Iterator<PrintableObject>iterator = vas.newObjects.iterator();
+            while (iterator.hasNext()) {
+                PrintableObject newobj = iterator.next();
+                iterator.remove();
+                newobj.setBufferedImage(ImageIO.read(DrawPanel.class.getResourceAsStream(newobj.getImage())));
+                ;// Remove the current element using the iterator
+            }}
         } catch (IOException ex) {
             ex.printStackTrace();
-        }
 
+
+        }
     }
+
+
 
     @Override
     public void updatePosition() {

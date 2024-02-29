@@ -83,14 +83,26 @@ public class VehiclesAndShops <T extends MoveImage> {
         if (!vehicles.isEmpty()) {
             vehicles.getFirst().setBufferedImage(null);
             vehicles.removeFirst();
+            System.out.println("Car removed");
+            checkNumberOfCars(vehicles);
         }
-    }
+        else {System.out.println("There are no cars to remove");
+    }}
     void addCar() {
-        Vehicle vehicle = creator.createVolvo240(Color.BLACK, 0,0,0);
-        this.vehicles.add(vehicle);
-        this.allItems.add(vehicle);
-        this.newObjects.add(vehicle);
-        System.out.println("button pressed");
+        if(vehicles.size()<10) {
+            Vehicle vehicle = creator.createVolvo240(Color.BLACK, 0,0,0);
+            this.vehicles.add(vehicle);
+            this.allItems.add(vehicle);
+            this.newObjects.add(vehicle);
+            vehicle.startEngine();
+            System.out.println("Car added");
+            checkNumberOfCars(vehicles);
+        }
+        else {System.out.println("There can not be more than 10 cars");
+    }}
+void checkNumberOfCars (ArrayList vehicles) {if (1 == vehicles.size()) {
+    System.out.println(vehicles.size() + " Car exist");}
+else {System.out.println(vehicles.size() + " Cars exist");}
     }
-}
+        }
 
