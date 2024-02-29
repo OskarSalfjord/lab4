@@ -1,6 +1,9 @@
-import javax.imageio.ImageIO;
+package Model;
+
+import Model.Movable;
+import Model.PrintableObject;
+
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public abstract class Vehicle extends PrintableObject implements Movable {
     //FIXA FLAK INTERFACE?

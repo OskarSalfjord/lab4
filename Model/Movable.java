@@ -1,3 +1,4 @@
+package Model;
 
 interface Movable {
     void move();

@@ -1,3 +1,5 @@
+package Model;
+
 public class RampC<T>{
     protected enum RampEnum{RAISED, LOWERED}
     private T rampStatus;

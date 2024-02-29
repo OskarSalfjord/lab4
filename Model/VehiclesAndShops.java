@@ -1,14 +1,14 @@
+package Model;
+
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class VehiclesAndShops <T extends MoveImage> {
     ArrayList<Vehicle> vehicles;
     ArrayList<AutoShop> shops;
-    ArrayList<PrintableObject> allItems;
+    public ArrayList<PrintableObject> allItems;
     VehiclesCreator creator;
-    ArrayList<PrintableObject> newObjects;
+    public ArrayList<PrintableObject> newObjects;
     private EventManager manageMovement;
 
     public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops, VehiclesCreator creator) {
@@ -22,7 +22,7 @@ public class VehiclesAndShops <T extends MoveImage> {
         this.creator = creator;
 
     }
-    void gas(int amount) {
+    public void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Vehicle car : vehicles) {
             try {
@@ -33,58 +33,58 @@ public class VehiclesAndShops <T extends MoveImage> {
         }
     }
 
-    void startEngine() {
+    public void startEngine() {
         for (Vehicle car : vehicles
         ) {
             car.startEngine();
-        }
+        }System.out.println("All Engines Started");
     }
-    void stopEngine() {
+    public void stopEngine() {
         for (Vehicle car : vehicles
         ) {
             car.stopEngine();
-        }
+        } System.out.println("All Engines Stopped");
     }
-    void brake(int amount) {
+    public void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (Vehicle car : vehicles
         ) {
             car.brake(brake);
         }
     }
-    void turboOn() {
+    public void turboOn() {
         for (Vehicle car : vehicles
         ) {
             if (car instanceof Saab95) {
                 ((Saab95) car).setTurboOn();
             }
-        }
+        }System.out.println("Saab Turbo ON");
     }
-    void turboOff() {
+    public void turboOff() {
         for (Vehicle car : vehicles
         ) {
             if (car instanceof Saab95) {
                 ((Saab95) car).setTurboOff();
             }
-        }
+        }System.out.println("Saab Turbo OFF");
     }
-    void raiseRamp() {
+    public void raiseRamp() {
         for (Vehicle car : vehicles
         ) {
             if (car instanceof Scania) {
                 ((Scania) car).raiseRamp();
             }
-        }
+        }System.out.println("Ramp Raised");
     }
-    void lowerRamp() {
+    public void lowerRamp() {
         for (Vehicle car : vehicles
         ) {
             if (car instanceof Scania) {
                 ((Scania) car).lowerRamp();
             }
-        }
+        }System.out.println("Ramp Lowered");
     }
-    void removeCar() {
+    public void removeCar() {
         if (!vehicles.isEmpty()) {
             vehicles.getFirst().setBufferedImage(null);
             allItems.remove(vehicles.getFirst());
@@ -94,7 +94,7 @@ public class VehiclesAndShops <T extends MoveImage> {
         }
         else {System.out.println("There are no cars to remove");
     }}
-    void addCar() {
+    public void addCar() {
         if(vehicles.size()<10) {
             Vehicle vehicle = creator.createVolvo240(Color.BLACK, 0,0,0);
             this.vehicles.add(vehicle);

@@ -1,3 +1,7 @@
+package Model;
+
+import Model.MoveImage;
+
 import java.awt.image.BufferedImage;
 
 public abstract class PrintableObject implements MoveImage {

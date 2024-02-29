@@ -1,6 +1,8 @@
+package Model;
+
 import java.awt.image.BufferedImage;
 
-//Implementera i Vehicle och AutoShop så att det blir ett gemensamt gränssnitt i DrawPanel
+//Implementera i Model.Vehicle och Model.AutoShop så att det blir ett gemensamt gränssnitt i View.DrawPanel
 public interface MoveImage {
     double getX();
 

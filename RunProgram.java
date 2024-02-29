@@ -1,8 +1,11 @@
-import javax.swing.*;
+import Controller.ButtonController;
+import Model.*;
+import View.CarView;
+import View.DrawPanel;
+import Model.EventManager;
+
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -36,25 +39,24 @@ public class RunProgram {
         allVehicles.add(v.createVolvo240(Color.CYAN, 0, 300, 0));
 
         ArrayList<AutoShop<Car>>allShops = new ArrayList<>();
-        AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 300, "pics/VolvoBrand.jpg");
+        AutoShop<Car> volvoshop1 = new AutoShop(5, volvoList1, 200, 300, "../pics/VolvoBrand.jpg");
         allShops.add(volvoshop1);
 
         // Start a new view and send a reference of self
         VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops, v);
         DrawPanel drawPanel = new DrawPanel(800, 560, vas);
         CarView view = new CarView("CarSim 1.1", rp.manager);
+
         view.add(drawPanel);
 
         rp.manager.subscribe(drawPanel);
         ButtonController bc = new ButtonController(view, vas);
-
-
         CarModell carModell = new CarModell(vas, rp.manager);
 
-        //Timer timer = new Timer(delay, new CarModell.TimerListener(allVehicles, allShops, rp.manager));
+        //Timer timer = new Timer(delay, new Model.CarModell.TimerListener(allVehicles, allShops, rp.manager));
 
         //Timer timer = new Timer(delay, new TimerListener(vas, view, rp.manager));
-        //ButtonController bc = new ButtonController(view, vas);
+        //Controller.ButtonController bc = new Controller.ButtonController(view, vas);
 
         // Start the timer
         //timer.start();

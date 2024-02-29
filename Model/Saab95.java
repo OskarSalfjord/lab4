@@ -1,13 +1,17 @@
+package Model;
+
+import Model.Car;
+
 import java.awt.*;
 
-public class Saab95 extends Car{
+public class Saab95 extends Car {
 
     private boolean turboOn;
 
     public Saab95(Color color, double x, double y, double direction) {
         super(2, color, 125, "Saab95", 1000, x, y, direction);
         turboOn = false;
-        this.imgAdress = "pics/Saab95.jpg";
+        this.imgAdress = "../pics/Saab95.jpg";
     }
 
     protected void setTurboOn() {

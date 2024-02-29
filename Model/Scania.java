@@ -1,13 +1,17 @@
+package Model;
+
+import Model.Ramp;
+import Model.RampC;
+
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 
-public class Scania extends Truck implements Ramp{
+public class Scania extends Truck implements Ramp {
     private RampC<Integer> scaniaRamp;
     public Scania(Color color, double x, double y, double direction) {
         super(2, color, 200, "Scania", 5000, x, y, direction);
         scaniaRamp = new RampC<>(0);
-        this.imgAdress = "pics/Scania.jpg";
+        this.imgAdress = "../pics/Scania.jpg";
     }
 
     protected int getRampAngle() {return scaniaRamp.getRampStatus();}
@@ -15,7 +19,7 @@ public class Scania extends Truck implements Ramp{
    @Override
    protected double speedFactor() {return getEnginePower() * 0.005;}
     @Override
-    public void raiseRamp() { // Raises the Ramp with 5 degrees
+    public void raiseRamp() { // Raises the Model.Ramp with 5 degrees
         if (getEngineOn()) {
             throw new IllegalStateException("Turn engine off before trying to raise the ramp");
         }
@@ -39,6 +43,6 @@ public class Scania extends Truck implements Ramp{
             super.gas(amount);
         }
         else
-            throw new IllegalStateException("Lower Scania Ramp to 0 degrees before trying to move");
+            throw new IllegalStateException("Lower Scania Model.Ramp to 0 degrees before trying to move");
     }
 }

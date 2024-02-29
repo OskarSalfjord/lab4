@@ -1,3 +1,5 @@
+package Model;
+
 import java.awt.*;
 public abstract class Car extends Vehicle {
     private final int nrDoors;
