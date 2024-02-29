@@ -24,8 +24,8 @@ public class TimerListener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : vehicles) {
-            if (frame.getWindowWidth() - 100 < vehicle.getX()) {
-                collisionManagement(vehicle, frame.getWindowWidth() - 100, vehicle.getY());
+            if (frame.getWindowWidth() - (double) (vehicle.getBufferedImage().getWidth()) < vehicle.getX()) {
+                collisionManagement(vehicle, frame.getWindowWidth() - (double) (vehicle.getBufferedImage().getWidth()), vehicle.getY());
             } else if (vehicle.getX() < 0) {
                 collisionManagement(vehicle, 0, vehicle.getY());
                 vehicle.setPosition(0, vehicle.getY());
@@ -35,7 +35,7 @@ public class TimerListener implements ActionListener {
 
                 if (vehicle instanceof Volvo240) {
                     for (AutoShop<Car> shop : shops)
-                        if (Math.abs(vehicle.getX() - shop.getX()) < 100 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
+                        if (Math.abs(vehicle.getX() - shop.getX()) < (double) (vehicle.getBufferedImage().getWidth())/2 && Math.abs((vehicle.getY() - shop.getY())) < 100) {
                             loadCar(shop, vehicle);
                         }
                 }

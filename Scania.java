@@ -39,6 +39,6 @@ public class Scania extends Truck implements Ramp{
             super.gas(amount);
         }
         else
-            throw new IllegalStateException("Lower Ramp to 0 degrees before trying to move");
+            throw new IllegalStateException("Lower Scania Ramp to 0 degrees before trying to move");
     }
 }

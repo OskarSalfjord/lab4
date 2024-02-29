@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class VehiclesAndShops <T extends MoveImage> {
@@ -23,11 +24,15 @@ public class VehiclesAndShops <T extends MoveImage> {
     }
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Vehicle car : vehicles
-        ) {
+        for (Vehicle car : vehicles) {
+            try {
             car.gas(gas);
+        } catch (Exception e){
+                System.out.println(e.getMessage());
+                continue;}
         }
     }
+
     void startEngine() {
         for (Vehicle car : vehicles
         ) {
@@ -102,7 +107,7 @@ public class VehiclesAndShops <T extends MoveImage> {
         else {System.out.println("There can not be more than 10 cars");
     }}
 void checkNumberOfCars (ArrayList vehicles) {if (1 == vehicles.size()) {
-    System.out.println(vehicles.size() + " Car exist");}
+    System.out.println(vehicles.size() + " Car exists");}
 else {System.out.println(vehicles.size() + " Cars exist");
     System.out.println(allItems.size() + " Items exist");}
     }
