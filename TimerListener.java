@@ -3,14 +3,21 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TimerListener implements ActionListener {
+
+    VehiclesAndShops<MoveImage> vas;
     ArrayList<Vehicle> vehicles;
-    ArrayList<AutoShop<Car>> shops;
+
+    ArrayList<PrintableObject> allItems;
+    ArrayList<AutoShop> shops;
+
+    ArrayList<Vehicle> vehiclesInShop = new ArrayList<>();
     CarView frame;
     private EventManager manager;
     // Detta ska bli carmodell med TimerListenern inuti enl. TA
-    public TimerListener(ArrayList<Vehicle> vehicles, ArrayList<AutoShop<Car>> shops, CarView frame, EventManager manager) {
-        this.vehicles = vehicles;
-        this.shops = shops;
+    public TimerListener(VehiclesAndShops<MoveImage> vas, CarView frame, EventManager manager) {
+        this.vehicles = vas.vehicles;
+        this.shops = vas.shops;
+        this.allItems = vas.allItems;
         this.frame = frame;
         this.manager = manager;
     }
@@ -35,6 +42,14 @@ public class TimerListener implements ActionListener {
             }
         }
         manager.notifyMovement();
+        if (!vehiclesInShop.isEmpty()) {
+            for (Vehicle vehicle: vehiclesInShop) {
+                vehicles.remove(vehicle);
+                allItems.remove(vehicle);
+            }
+        }
+
+
     }
     private void collisionManagement(Vehicle vehicle, double x, double y) {
         vehicle.setPosition(x, y);
@@ -45,8 +60,8 @@ public class TimerListener implements ActionListener {
 
     private void loadCar(AutoShop<Car> shop, Vehicle vehicle) {
         shop.loadCar((Car) vehicle);
-        vehicle.set_canMove(false);
         vehicle.setBufferedImage(null);
+        vehiclesInShop.add(vehicle);
     }
 
 

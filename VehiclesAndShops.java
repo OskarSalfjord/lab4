@@ -82,6 +82,7 @@ public class VehiclesAndShops <T extends MoveImage> {
     void removeCar() {
         if (!vehicles.isEmpty()) {
             vehicles.getFirst().setBufferedImage(null);
+            allItems.remove(vehicles.getFirst());
             vehicles.removeFirst();
             System.out.println("Car removed");
             checkNumberOfCars(vehicles);
@@ -102,7 +103,8 @@ public class VehiclesAndShops <T extends MoveImage> {
     }}
 void checkNumberOfCars (ArrayList vehicles) {if (1 == vehicles.size()) {
     System.out.println(vehicles.size() + " Car exist");}
-else {System.out.println(vehicles.size() + " Cars exist");}
+else {System.out.println(vehicles.size() + " Cars exist");
+    System.out.println(allItems.size() + " Items exist");}
     }
         }
 
