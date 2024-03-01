@@ -11,4 +11,6 @@ public abstract class Truck extends Vehicle {
         this.nrDoors = nrDoors;
 
     }
+    protected int getNrDoors() {
+        return nrDoors;}
 }

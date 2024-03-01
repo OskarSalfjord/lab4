@@ -25,10 +25,7 @@ public class CarView extends JFrame{
     protected int getWindowWidth() {
         return X;
     }
-    private EventManager manager;
-
     // The controller member
-
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
@@ -49,13 +46,13 @@ public class CarView extends JFrame{
     public JButton removeCarButton = new JButton("Remove Car");
 
     // Constructor
-    public CarView(String framename, EventManager manager){
-        initComponents(framename, manager);
+    public CarView(String framename){
+        initComponents(framename);
     }
 
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
-    private void initComponents(String title, EventManager manager) {
+    private void initComponents(String title) {
 
         this.setTitle(title);
         this.setPreferredSize(new Dimension(X,Y));

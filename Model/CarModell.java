@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class CarModell {
 
-    private final int window_x = 800;
-    private final int window_y = 800;
+    private final int windowX = 800;
+    private final int windowY = 800;
     protected final int delay = 50;
     VehiclesAndShops<MoveImage> vas;
     EventManager manager;
@@ -17,7 +17,7 @@ public class CarModell {
 
     ArrayList<PrintableObject> allItems;
 
-    ArrayList<Vehicle> vehicleInAutoshop = new ArrayList<>();
+    ArrayList<Vehicle> vehicleInShop = new ArrayList<>();
 
 
 
@@ -45,8 +45,8 @@ public class CarModell {
         }
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
-                if (window_x - 100 < vehicle.getX()) {
-                    collisionManagement(vehicle, window_x - 100, vehicle.getY());
+                if (windowX - 100 < vehicle.getX()) {
+                    collisionManagement(vehicle, windowX - 100, vehicle.getY());
                 } else if (vehicle.getX() < 0) {
                     collisionManagement(vehicle, 0, vehicle.getY());
                     vehicle.setPosition(0, vehicle.getY());
@@ -63,8 +63,8 @@ public class CarModell {
                 }
             }
             manager.notifyMovement();
-            if(!vehicleInAutoshop.isEmpty());{
-                for(Vehicle vehicle: vehicleInAutoshop) {
+            if(!vehicleInShop.isEmpty());{
+                for(Vehicle vehicle: vehicleInShop) {
                     vehicles.remove(vehicle);
                     allItems.remove(vehicle);
                 }
@@ -82,7 +82,7 @@ public class CarModell {
     private void loadCar(AutoShop<Car> shop, Vehicle vehicle) {
         shop.loadCar((Car) vehicle);
         vehicle.setBufferedImage(null);
-        vehicleInAutoshop.add(vehicle);
+        vehicleInShop.add(vehicle);
     }
 }
 

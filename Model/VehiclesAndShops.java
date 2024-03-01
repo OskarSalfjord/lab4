@@ -9,7 +9,6 @@ public class VehiclesAndShops <T extends MoveImage> {
     public ArrayList<PrintableObject> allItems;
     VehiclesCreator creator;
     public ArrayList<PrintableObject> newObjects;
-    private EventManager manageMovement;
 
     public VehiclesAndShops(ArrayList<Vehicle> vehicles, ArrayList<AutoShop> shops, VehiclesCreator creator) {
         this.vehicles = vehicles;

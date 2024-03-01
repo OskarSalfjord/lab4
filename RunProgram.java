@@ -45,7 +45,7 @@ public class RunProgram {
         // Start a new view and send a reference of self
         VehiclesAndShops<MoveImage> vas = new VehiclesAndShops(allVehicles, allShops, v);
         DrawPanel drawPanel = new DrawPanel(800, 560, vas);
-        CarView view = new CarView("CarSim 1.1", rp.manager);
+        CarView view = new CarView("CarSim 1.1");
 
         view.add(drawPanel);
 
