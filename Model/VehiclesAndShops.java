@@ -72,16 +72,17 @@ public class VehiclesAndShops <T extends MoveImage> {
         ) {
             if (car instanceof Scania) {
                 ((Scania) car).raiseRamp();
+                System.out.println("Ramp Raised: Now at " + ((Scania) car).getRampAngle());
             }
-        }System.out.println("Ramp Raised");
-    }
+    }}
     public void lowerRamp() {
         for (Vehicle car : vehicles
         ) {
             if (car instanceof Scania) {
                 ((Scania) car).lowerRamp();
+                System.out.println("Ramp lowered: Now at " + ((Scania) car).getRampAngle() + " Degrees");
             }
-        }System.out.println("Ramp Lowered");
+        }
     }
     public void removeCar() {
         if (!vehicles.isEmpty()) {
