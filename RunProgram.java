@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 public class RunProgram {
     public static void main(String[] args) {
-        // Instance of this class
-        // int delay = rp.delay;
         EventManager manager = new EventManager();
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
         ArrayList<Volvo240> volvoList1 = new ArrayList<>();
