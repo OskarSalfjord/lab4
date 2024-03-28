@@ -28,7 +28,7 @@ public class CarView extends JFrame{
     // The controller member
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
-    JSpinner gasSpinner = new JSpinner();
+    public JSpinner gasSpinner = new JSpinner();
     public int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
@@ -65,11 +65,6 @@ public class CarView extends JFrame{
                         100, //max
                         1);//step
         gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
-            }
-        });
 
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);

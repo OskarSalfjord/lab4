@@ -7,27 +7,11 @@ import Model.EventManager;
 import java.awt.*;
 import java.util.ArrayList;
 
-/*
-* This class represents the Controller part in the MVC pattern.
-* It's responsibilities is to listen to the View and responds in a appropriate manner by
-* modifying the model state and the updating the view.
- */
-
 public class RunProgram {
-    // member fields:
-
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    //
-    private EventManager manager = new EventManager();
-    // The timer is started with a listener (see below) that executes the statements
-    // each step between delays.
-    //private Timer timer = new Timer(delay, new TimerListener());
-    private VehiclesCreator v;
-
     public static void main(String[] args) {
         // Instance of this class
-        RunProgram rp = new RunProgram();
         // int delay = rp.delay;
+        EventManager manager = new EventManager();
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
         ArrayList<Volvo240> volvoList1 = new ArrayList<>();
 
@@ -49,25 +33,9 @@ public class RunProgram {
 
         view.add(drawPanel);
 
-        rp.manager.subscribe(drawPanel);
+        manager.subscribe(drawPanel);
         ButtonController bc = new ButtonController(view, vas);
-        CarModell carModell = new CarModell(vas, rp.manager);
-
-        //Timer timer = new Timer(delay, new Model.CarModell.TimerListener(allVehicles, allShops, rp.manager));
-
-        //Timer timer = new Timer(delay, new TimerListener(vas, view, rp.manager));
-        //Controller.ButtonController bc = new Controller.ButtonController(view, vas);
-
-        // Start the timer
-        //timer.start();
-
+        CarModell carModell = new CarModell(vas, manager);
     }
-
-    /* Each step the TimerListener moves all the cars in the list and tells the
-     * view to update its images. Change this method to your needs.
-     * */
-
-
-    // Calls the gas method for each car once
 
 }

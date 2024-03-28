@@ -3,6 +3,9 @@ package Controller;
 import Model.VehiclesAndShops;
 import View.CarView;
 
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -76,6 +79,11 @@ public class ButtonController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 vehicles.removeCar();
+            }
+        });
+        frame.gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                frame.gasAmount = (int) ((JSpinner)e.getSource()).getValue();
             }
         });
     }}
